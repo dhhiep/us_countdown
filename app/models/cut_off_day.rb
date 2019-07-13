@@ -54,17 +54,16 @@ class CutOffDay < ApplicationRecord
   end
 
   def check_and_update!
-    data = cut_off_days(build_urls[:next][:url])
+    %i[previous current next].each do |key|
+      resource = build_urls[key]
+      next if CutOffDay.find_by_uuid(resource[:uuid]) # Doesn't fetch old data
 
-    uuid, data =
-      if data
-        [build_urls[:next][:uuid], data]
-      else
-        [build_urls[:current][:uuid], cut_off_days(build_urls[:current][:url])]
-      end
+      data = cut_off_days(resource[:url])
+      next unless data
 
-    cut_of_day = CutOffDay.where(uuid: uuid).first_or_initialize
-    cut_of_day.update(data: data)
+      cut_of_day = CutOffDay.where(uuid: resource[:uuid]).first_or_initialize
+      cut_of_day.update(data: data)
+    end
   end
 
   private
@@ -86,6 +85,10 @@ class CutOffDay < ApplicationRecord
 
   def build_urls(m_step: 1)
     {
+      previous: {
+        uuid: m_step.month.ago.strftime('%Y%m'),
+        url: "#{vb_base_url}/#{vb_uri(m_step.month.ago)}"
+      },
       current: {
         uuid: Time.current.strftime('%Y%m'),
         url: "#{vb_base_url}/#{vb_uri(Time.current)}"
