@@ -1,0 +1,52 @@
+<p>
+  <h3>Previous Visa Bulletin <%= "#{CutOffDay.previous_data.uuid[4..-1]}/#{CutOffDay.previous_data.uuid[0..3]}" %></h3>
+  <ul>
+    <% CutOffDay::TYPES.each do |key, value| %>
+      <li>
+        <b><%= key.upcase %></b>:
+        <% imm_data = CutOffDay.send("previous_#{key}") %>
+        <% if imm_data.is_a?(Time) %>
+          <% #binding.pry %>
+          <%= "#{imm_data.s_display} (#{CutOffDay.calculate_distance(key, Time.current, month_cut_off: CutOffDay.previous)})" %>
+        <% else %>
+          <%= imm_data %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <h3>Current Visa Bulletin <%= "#{CutOffDay.current_data.uuid[4..-1]}/#{CutOffDay.current_data.uuid[0..3]}" %></h3>
+  <ul>
+    <% CutOffDay::TYPES.each do |key, value| %>
+      <li>
+        <b><%= key.upcase %></b>:
+        <% imm_data = CutOffDay.send(key) %>
+        <% if imm_data.is_a?(Time) %>
+          <%= imm_data.s_display %>
+          <%= "(#{CutOffDay.calculate_distance(key, Time.current)})" %>
+          <b><%= "(#{CutOffDay.improvement_speed(key)})" %></b>
+        <% else %>
+          <%= imm_data %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<hr>
+<h3>Records:</h3>
+<% @records.each do |record| %>
+  <p>
+    <ul>
+      <li><b>Name</b>: <%= record.name %></li>
+      <li><b>Priority date</b>: <%= record.priority_date.s_display %></li>
+      <li><b>Waiting for cut-off</b>: <%= record.status %> <b><%= "(#{CutOffDay.improvement_speed(record.imm_type)})" %></b></li>
+      <li>
+        <b>Total Waiting for cut-off (<%= record.imm_type.upcase %>)</b>:
+        <%= CutOffDay.calculate_distance(record.imm_type, Time.current) %>
+      </li>
+    </ul>
+  </p>
+<% end %>

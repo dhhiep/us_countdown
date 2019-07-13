@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @record.name %>
+</p>
+
+<p>
+  <strong>Imm type:</strong>
+  <%= @record.imm_type %>
+</p>
+
+<p>
+  <strong>Priority date:</strong>
+  <%= @record.priority_date %>
+</p>
+
+<p>
+  <strong>Approval date:</strong>
+  <%= @record.approval_date %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
