@@ -8,7 +8,7 @@
 
 Record.where(name: 'Hiep Dinh', imm_type: 'f2b', priority_date: Time.strptime('17/08/2018', '%d/%m/%Y')).first_or_create
 
-CutOffDay.where(uuid: '201907').first_or_create(
+VisaBulletin.where(uuid: '201907').first_or_create(
   data: {
     f1: Time.parse('2012-03-08 00:00:00 +0700'),
     f2a: 'C',
@@ -18,7 +18,7 @@ CutOffDay.where(uuid: '201907').first_or_create(
   }
 )
 
-CutOffDay.where(uuid: '201908').first_or_create(
+VisaBulletin.where(uuid: '201908').first_or_create(
   data: {
     f1: Time.parse('2012-07-01 00:00:00 +0700'),
     f2a: 'C',

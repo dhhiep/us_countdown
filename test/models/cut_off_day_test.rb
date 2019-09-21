@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CutOffDayTest < ActiveSupport::TestCase
+class VisaBulletinTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

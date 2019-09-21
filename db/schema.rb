@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_173713) do
+ActiveRecord::Schema.define(version: 2019_09_10_144732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cut_off_days", force: :cascade do |t|
-    t.string "uuid"
-    t.text "data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "records", force: :cascade do |t|
     t.string "name"
     t.string "imm_type"
     t.datetime "priority_date"
     t.datetime "approval_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "visa_bulletins", force: :cascade do |t|
+    t.string "uuid"
+    t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
