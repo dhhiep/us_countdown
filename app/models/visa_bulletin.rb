@@ -36,6 +36,8 @@ class VisaBulletin < ApplicationRecord
       current_month = current[imm_type]
 
       previous_month == current_month ? 'No Increase!!!' : previous_month.to(current_month)
+    rescue StandardError
+      # TODO:Handle error
     end
 
     def date_range_valid?(imm_type, previous: {}, current: {})
