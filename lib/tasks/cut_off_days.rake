@@ -11,7 +11,7 @@ namespace :cut_off_days do
   end
 
   task fetch_all: :environment do
-    time = Time.parse('2018/01/01')
+    time = Time.strptime(ENV['DATE'], '%Y%m')
     while time < Time.current
       VisaBulletin.check_and_update(time)
       time += 1.month
