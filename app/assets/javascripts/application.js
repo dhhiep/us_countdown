@@ -12,5 +12,12 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+// require turbolinks
+//= require base/jquery.min
+//= require base/core.min
+//= require nicescroll/nicescroll.min
+//= require chart/chart.min
+//= require progress/circle-progress.min
+//= require app/app.min
+//= require elisyam/dashboard/db-compact
+// require_tree .

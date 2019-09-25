@@ -1,0 +1,170 @@
+/ Offcanvas Sidebar
+.off-sidebar.from-right
+  .off-sidebar-container
+    %header.off-sidebar-header
+      %ul#weather-tab.button-nav.nav.nav-tabs.mt-3.mb-3.ml-3{:role => "tablist"}
+        %li
+          %a#messenger-tab.active{"data-toggle" => "tab", :href => "#messenger", :role => "tab"} Messages
+        %li
+          %a#today-tab{"data-toggle" => "tab", :href => "#today", :role => "tab"} Today
+      %a.off-sidebar-close{:href => "#off-canvas"}
+    .off-sidebar-content.offcanvas-scroll.auto-scroll
+      .tab-content
+        / Begin Messenger
+        #messenger.tab-pane.show.active.fade{"aria-labelledby" => "messenger-tab", :role => "tabpanel"}
+          / Begin Chat Message
+          %span.date Today
+          .messenger-message.messenger-message-sender
+            = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'messenger-image messenger-image-default'
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  %span.mb-2 Brandon wrote
+                  Hi David, what's up?
+              .messenger-details
+                %span.messenger-message-localization.font-size-small 2 minutes ago
+          .messenger-message.messenger-message-recipient
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  Hi Brandon, fine and you?
+                %p
+                  I'm working on the next update of Elisyam
+              .messenger-details
+                %span.messenger-message-localisation.font-size-small 3 minutes ago
+          .messenger-message.messenger-message-sender
+            = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'messenger-image messenger-image-default'
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  %span.mb-2 Brandon wrote
+                  I can't wait to see
+              .messenger-details
+                %span.messenger-message-localization.font-size-small 5 minutes ago
+          .messenger-message.messenger-message-recipient
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  I'm almost done
+              .messenger-details
+                %span.messenger-message-localisation.font-size-small 10 minutes ago
+          %span.date Yesterday
+          .messenger-message.messenger-message-sender
+            = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'messenger-image messenger-image-default'
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  I updated the server tonight
+          .messenger-message.messenger-message-recipient
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  Didn't you have any problems?
+          .messenger-message.messenger-message-sender
+            = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'messenger-image messenger-image-default'
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  No!
+          .messenger-message.messenger-message-recipient
+            .messenger-message-wrapper
+              .messenger-message-content
+                %p
+                  Great!
+                %p
+                  See you later!
+          / End Chat Message
+          / Begin Message Form
+          .enter-message
+            .enter-message-form
+              %input{:placeholder => "Enter your message...", :type => "text"}/
+            .enter-message-button
+              %a.send{:href => "#"}
+                %i.ion-paper-airplane
+          / End Message Form
+        / End Messenger
+        / Begin Today
+        #today.tab-pane.fade{"aria-labelledby" => "today-tab", :role => "tabpanel"}
+          / Begin Today Stats
+          .sidebar-heading.pt-0 Today
+          .today-stats.mt-3.mb-3
+            .row
+              .col-4.text-center
+                %i.la.la-users
+                .counter 264
+                .heading Clients
+              .col-4.text-center
+                %i.la.la-cart-arrow-down
+                .counter 360
+                .heading Sales
+              .col-4.text-center
+                %i.la.la-money
+                .counter $ 4,565
+                .heading Earnings
+          / End Today Stats
+          / Begin Friends
+          .sidebar-heading Friends
+          .quick-friends.mt-3.mb-3
+            %ul.list-group.w-100
+              %li.list-group-item
+                .media
+                  .media-left.align-self-center.mr-3
+                    = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
+                  .media-body.align-self-center
+                    %a{:href => "javascript:void(0);"} Brandon Smith
+              %li.list-group-item
+                .media
+                  .media-left.align-self-center.mr-3
+                    = image_tag 'elisyam/avatar/avatar-03.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
+                  .media-body.align-self-center
+                    %a{:href => "javascript:void(0);"} Louis Henry
+              %li.list-group-item
+                .media
+                  .media-left.align-self-center.mr-3
+                    = image_tag 'elisyam/avatar/avatar-04.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
+                  .media-body.align-self-center
+                    %a{:href => "javascript:void(0);"} Nathan Hunter
+              %li.list-group-item
+                .media
+                  .media-left.align-self-center.mr-3
+                    = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
+                  .media-body.align-self-center
+                    %a{:href => "javascript:void(0);"} Megan Duncan
+              %li.list-group-item
+                .media
+                  .media-left.align-self-center.mr-3
+                    = image_tag 'elisyam/avatar/avatar-06.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
+                  .media-body.align-self-center
+                    %a{:href => "javascript:void(0);"} Beverly Oliver
+          / End Friends
+          / Begin Settings
+          .sidebar-heading Settings
+          .quick-settings.mt-3.mb-3
+            %ul.list-group.w-100
+              %li.list-group-item
+                .media
+                  .media-body.align-self-center
+                    %p.text-dark Notifications Email
+                  .media-right.align-self-center
+                    %label
+                      %input.toggle-checkbox{:checked => "checked", :type => "checkbox"}/
+                      %span
+                        %span
+              %li.list-group-item
+                .media
+                  .media-body.align-self-center
+                    %p.text-dark Notifications Sound
+                  .media-right.align-self-center
+                    %label
+                      %input.toggle-checkbox{:type => "checkbox"}/
+                      %span
+                        %span
+              %li.list-group-item
+                .media
+                  .media-body.align-self-center
+                    %p.text-dark Chat Message Sound
+                  .media-right.align-self-center
+                    %label
+                      %input.toggle-checkbox{:checked => "checked", :type => "checkbox"}/
+                      %span
+                        %span

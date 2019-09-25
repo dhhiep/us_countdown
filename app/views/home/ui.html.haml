@@ -1,0 +1,768 @@
+.container-fluid
+  .row
+    .page-header
+      .d-flex.align-items-center
+        %h2.page-header-title Dashboard
+        %div
+          .page-header-tools
+            %a.btn.btn-gradient-01{:href => "#"} Add Widget
+  .row.flex-row
+    .col-xl-4.col-md-6.col-sm-6
+      .widget.widget-12.has-shadow
+        .widget-body
+          .media
+            .align-self-center.ml-5.mr-5
+              %i.ion-social-facebook.text-facebook
+            .media-body.align-self-center
+              .title David Green
+              .number 10,865 Likes
+    .col-xl-4.col-md-6.col-sm-6
+      .widget.widget-12.has-shadow
+        .widget-body
+          .media
+            .align-self-center.ml-5.mr-5
+              %i.ion-social-twitter.text-twitter
+            .media-body.align-self-center
+              .title @David_Green
+              .number 8,986 Followers
+    .col-xl-4.col-md-6.col-sm-6
+      .widget.widget-12.has-shadow
+        .widget-body
+          .media
+            .align-self-center.ml-5.mr-5
+              %i.ion-social-linkedin-outline.text-linkedin
+            .media-body.align-self-center
+              .title @David_Green
+              .number 3,654 Followers
+  .row.flex-row
+    .col-xl-12.col-md-6
+      .widget.widget-09.has-shadow
+        .widget-header.d-flex.align-items-center
+          %h2 Delivered Orders
+          .widget-options
+            %button.btn.btn-shadow{:type => "button"} View all
+        .widget-body
+          .row
+            .col-xl-10.col-12.no-padding
+              %div
+                %canvas#orders
+            .col-xl-2.col-12.d-flex.flex-column.my-auto.no-padding.text-center
+              .new-orders
+                .title New Orders
+                .circle-orders
+                  .percent-orders
+              .some-stats.mt-5
+                .title Total Delivered
+                .number.text-blue 856
+              .some-stats.mt-3
+                .title Total Estimated
+                .number.text-blue 297
+  .row.flex-row
+    .col-xl-4.col-md-6
+      .widget.widget-04.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Post
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-check>
+                  Valid Post
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "faq.html"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body.p-0
+          .post-container
+            .media.mb-3
+              .media-left.align-self-center.user
+                %a{:href => "pages-profile.html"}
+                  = image_tag 'elisyam/avatar/avatar-07.jpg', class: 'rounded-circle'
+              .media-body.align-self-center.ml-3
+                .title
+                  %span.username Lisa Garett
+                  posted an image
+                .time 42 min ago
+            = image_tag 'elisyam/background/01.jpg', class: 'img-fluid'
+            .col.no-padding.d-flex.justify-content-end.mt-3
+              .meta
+                %ul
+                  %li
+                    %a{:href => "#"}
+                      %i.la.la-comment
+                      %span.numb 38
+                  %li
+                    %a{:href => "#"}
+                      %i.la.la-heart
+                      %span.numb 94
+          .input-group.mt-5
+            %input.form-control.pr-0{:placeholder => "Write a comment ...", :type => "text"}/
+            %span.input-group-addon
+              %button.btn{:type => "button"}
+                %i.la.la-smile-o.la-2x
+            %span.input-group-addon
+              %button.btn.pr-3{:type => "button"}
+                %i.la.la-pencil.la-2x
+    .col-xl-4.col-md-6
+      .widget.widget-05.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Top Author
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "#"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body.no-padding.hidden
+          .author-avatar
+            %span.badge-pulse-green
+            = image_tag 'elisyam/avatar/avatar-03.jpg', class: 'img-fluid rounded-circle'
+          .author-name
+            Louis Henry
+            %span Designer
+          .chart
+            .row.no-margin.justify-content-center
+              .col-12.col-xl-8.col-md-8.col-sm-8
+                .row.no-margin.align-items-center
+                  .col-9.no-padding
+                    .chart-graph
+                      .chart
+                        %canvas#sales-stats
+                  .col-3.no-padding.text-center
+                    .chart-text
+                      %span.heading Sales
+                      %span.number 364
+                      %span.cxg.text-green +35%
+          .social-stats
+            .row.d-flex.justify-content-between
+              .col-4.text-center
+                %i.la.la-users.followers
+                .counter +124
+                .heading Followers
+              .col-4.text-center
+                %i.la.la-dribbble.dribbble
+                .counter +357
+                .heading Likes
+              .col-4.text-center
+                %i.la.la-behance.behance
+                .counter +98
+                .heading Followers
+          .actions.text-center
+            %a.btn.btn-gradient-01{:href => "pages-profile.html"} View Profile
+    .col-xl-4
+      .widget.widget-06.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Reviews
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "#"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body.p-0
+          #list-group.widget-scroll{:style => "max-height:490px;"}
+            %ul.reviews.list-group.w-100
+              / 01
+              %li.list-group-item
+                .media
+                  .media-left.align-self-start
+                    = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'user-img rounded-circle'
+                  .media-body.align-self-center
+                    .username
+                      %h4 Brandon Smith
+                    .msg
+                      .stars
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star-half-empty
+                      %p
+                        WoW! Amazing Work!
+                    .meta
+                      %span.mr-3 30 minutes ago - 1 Reply
+                      %a{:href => "#"} Reply
+                  .media-right.pr-3.align-self-center
+                    .like.text-center
+                      %i.ion-heart
+                      %span 12
+              / 02
+              %li.list-group-item
+                .media
+                  .media-left.align-self-start
+                    = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'user-img rounded-circle'
+                  .media-body.align-self-center
+                    .username
+                      %h4 Megan Duncan
+                    .msg
+                      .stars
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                      %p
+                        Very nice! Keep up the beautiful work.
+                    .meta
+                      %span.mr-3 2 hours ago
+                      %a{:href => "#"} Reply
+                  .media-right.pr-3.align-self-center
+                    .like.text-center
+                      %i.ion-heart
+                      %span 4
+              / 03
+              %li.list-group-item
+                .media
+                  .media-left.align-self-start
+                    = image_tag 'elisyam/avatar/avatar-04.jpg', class: 'user-img rounded-circle'
+                  .media-body.align-self-center
+                    .username
+                      %h4 Nathan Hunter
+                    .msg
+                      .stars
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                      %p
+                        Nice work, good design!
+                    .meta
+                      %span.mr-3 4 hours ago
+                      %a{:href => "#"} Reply
+                  .media-right.pr-3.align-self-center
+                    .like.text-center
+                      %i.ion-heart
+                      %span 32
+              / 04
+              %li.list-group-item
+                .media
+                  .media-left.align-self-start
+                    = image_tag 'elisyam/avatar/avatar-09.jpg', class: 'user-img rounded-circle'
+                  .media-body.align-self-center
+                    .username
+                      %h4 Michael Bradley
+                    .msg
+                      .stars
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star-half-empty
+                      %p
+                        Very nice! Keep up the beautiful work.
+                    .meta
+                      %span.mr-3 5 hours ago - 2 Reply
+                      %a{:href => "#"} Reply
+                  .media-right.pr-3.align-self-center
+                    .like.text-center
+                      %i.ion-heart
+                      %span 2
+              / 05
+              %li.list-group-item
+                .media
+                  .media-left.align-self-start
+                    = image_tag 'elisyam/avatar/avatar-03.jpg', class: 'user-img rounded-circle'
+                  .media-body.align-self-center
+                    .username
+                      %h4 Louis Henry
+                    .msg
+                      .stars
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star
+                        %i.la.la-star-half-empty
+                      %p
+                        I like the color combination!
+                    .meta
+                      %span.mr-3 1 day ago
+                      %a{:href => "#"} Reply
+                  .media-right.pr-3.align-self-center
+                    .like.text-center
+                      %i.ion-heart
+                      %span 9
+  .row.flex-row
+    .col-xl-12
+      .widget.widget-07.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Product Overview
+          .widget-options
+            .btn-group{:role => "group"}
+              %button.btn.btn-primary.ripple{:type => "button"} Week
+              %button.btn.btn-primary.ripple{:type => "button"} Month
+        .widget-body
+          .table-responsive.table-scroll.padding-right-10{:style => "max-height:520px;"}
+            %table.table.table-hover.mb-0
+              %thead
+                %tr
+                  %th
+                    .styled-checkbox.mt-2
+                      %input#check-all{:name => "check-all", :type => "checkbox"}/
+                      %label{:for => "check-all"}
+                  %th Order ID
+                  %th Customer Name
+                  %th Country
+                  %th Ship Date
+                  %th
+                    %span{:style => "width:100px;"} Status
+                  %th Order Total
+                  %th Actions
+              %tbody
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb1{:name => "cb1", :type => "checkbox"}/
+                      %label{:for => "cb1"}
+                  %td
+                    %span.text-primary 054-01-FR
+                  %td Lori Baker
+                  %td US
+                  %td 10/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $139.45
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb2{:name => "cb2", :type => "checkbox"}/
+                      %label{:for => "cb2"}
+                  %td
+                    %span.text-primary 021-12-US
+                  %td Lawrence Crawford
+                  %td FR
+                  %td 10/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $189.00
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb3{:name => "cb3", :type => "checkbox"}/
+                      %label{:for => "cb3"}
+                  %td
+                    %span.text-primary 189-01-RU
+                  %td Samuel Walker
+                  %td AU
+                  %td 08/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.danger Failed
+                  %td $107.55
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb4{:name => "cb4", :type => "checkbox"}/
+                      %label{:for => "cb4"}
+                  %td
+                    %span.text-primary 092-06-FR
+                  %td Angela Walters
+                  %td US
+                  %td 08/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.success Delivered
+                  %td $129.85
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb5{:name => "cb5", :type => "checkbox"}/
+                      %label{:for => "cb5"}
+                  %td
+                    %span.text-primary 021-09-US
+                  %td Ryan Hanson
+                  %td ES
+                  %td 07/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $199.95
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb6{:name => "cb6", :type => "checkbox"}/
+                      %label{:for => "cb6"}
+                  %td
+                    %span.text-primary 054-01-FR
+                  %td Evelyn Black
+                  %td FR
+                  %td 10/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $139.45
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb7{:name => "cb7", :type => "checkbox"}/
+                      %label{:for => "cb7"}
+                  %td
+                    %span.text-primary 021-12-US
+                  %td James Morris
+                  %td EN
+                  %td 10/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $189.00
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb8{:name => "cb8", :type => "checkbox"}/
+                      %label{:for => "cb8"}
+                  %td
+                    %span.text-primary 189-01-RU
+                  %td Valentin H.
+                  %td AU
+                  %td 08/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.danger Failed
+                  %td $107.55
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb9{:name => "cb9", :type => "checkbox"}/
+                      %label{:for => "cb9"}
+                  %td
+                    %span.text-primary 092-06-FR
+                  %td Beverly Matthews
+                  %td RU
+                  %td 08/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $129.85
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+                %tr
+                  %td{:style => "width:5%;"}
+                    .styled-checkbox.mt-2
+                      %input#cb10{:name => "cb10", :type => "checkbox"}/
+                      %label{:for => "cb10"}
+                  %td
+                    %span.text-primary 021-09-US
+                  %td Jeffrey Arnold
+                  %td US
+                  %td 07/21/2017
+                  %td
+                    %span{:style => "width:100px;"}
+                      %span.badge-text.badge-text-small.info Paid
+                  %td $199.95
+                  %td.td-actions
+                    %a{:href => "#"}
+                      %i.la.la-edit.edit
+                    %a{:href => "#"}
+                      %i.la.la-close.delete
+        .widget-footer.d-flex.align-items-center
+          .mr-auto.p-2
+            %span.display-items Showing 1-30 / 150 Results
+          .p-2
+            %nav{"aria-label" => "..."}
+              %ul.pagination.justify-content-end
+                %li.page-item.disabled
+                  %span.page-link
+                    %i.ion-chevron-left
+                %li.page-item
+                  %a.page-link{:href => "#"} 1
+                %li.page-item.active
+                  %span.page-link
+                    2
+                    %span.sr-only (current)
+                %li.page-item
+                  %a.page-link{:href => "#"} 3
+                %li.page-item
+                  %a.page-link{:href => "#"}
+                    %i.ion-chevron-right
+  .row.flex-row
+    .col-xl-3.col-md-6
+      .widget.widget-08.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Tasks List
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-plus>
+                  Add Task
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "#"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body
+          .today
+            .title Today
+            .new-tasks
+              %span.nb 12
+              new tasks
+          .todo-list
+            %ul#sortable.list
+              %li.task-color.task-violet
+                .styled-checkbox
+                  %input#task-1{:type => "checkbox"}/
+                  %label.text-primary{:for => "task-1"} Play Rainbow Six
+              %li
+                .styled-checkbox
+                  %input#task-2{:type => "checkbox"}/
+                  %label.text-dark{:for => "task-2"} Drink coffee with Megan
+              %li.task-color.task-blue
+                .styled-checkbox
+                  %input#task-3{:type => "checkbox"}/
+                  %label.text-info{:for => "task-3"} Video conference
+              %li.task-color.task-red
+                .styled-checkbox
+                  %input#task-4{:type => "checkbox"}/
+                  %label.text-danger{:for => "task-4"} Finish visual design
+              %li
+                .styled-checkbox
+                  %input#task-5{:type => "checkbox"}/
+                  %label.text-dark{:for => "task-5"} Meeting with team
+    .col-xl-5.col-md-6
+      .widget.widget-10.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Support Tickets
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-bell-slash>
+                  Disable Alerts
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "#"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body.no-padding
+          %ul.ticket.list-group.w-100
+            / 01
+            %li.list-group-item
+              .media
+                .media-left.align-self-center.pr-4
+                  = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'user-img rounded-circle'
+                .media-body.align-self-center
+                  .username
+                    %h4 Brandon Smith
+                  .msg
+                    %p
+                      Hello, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et mauris sapien sem, ornare id mauris vitae, ultricies volutpat ...
+                  .status
+                    %span.open.mr-2> Open
+                    (1 hour ago)
+            / 02
+            %li.list-group-item
+              .media
+                .media-left.align-self-center.pr-4
+                  = image_tag 'elisyam/avatar/avatar-04.jpg', class: 'user-img rounded-circle'
+                .media-body.align-self-center
+                  .username
+                    %h4 Nathan Hunter
+                  .msg
+                    %p
+                      Hello, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et mauris sapien sem, ornare id mauris vitae, ultricies volutpat ...
+                  .status
+                    %span.pending.mr-2> Pending
+                    (2 hours ago)
+            / 03
+            %li.list-group-item
+              .media
+                .media-left.align-self-center.pr-4
+                  = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'user-img rounded-circle'
+                .media-body.align-self-center
+                  .username
+                    %h4 Megan Duncan
+                  .msg
+                    %p
+                      Hello, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et mauris sapien sem, ornare id mauris vitae, ultricies volutpat ...
+                  .status
+                    %span.closed.mr-2> Closed
+                    (1 day ago)
+    .col-xl-4
+      .widget.widget-11.has-shadow
+        .widget-header.bordered.d-flex.align-items-center
+          %h2 Activity Log
+          .widget-options
+            .dropdown
+              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                %i.la.la-ellipsis-h
+              .dropdown-menu
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-history>
+                  History
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-bell-slash>
+                  Disable Alerts
+                %a.dropdown-item{:href => "#"}
+                  %i.la.la-edit>
+                  Edit Widget
+                %a.dropdown-item.faq{:href => "#"}
+                  %i.la.la-question-circle>
+                  FAQ
+        .widget-body.p-0.widget-scroll{:style => "max-height:450px;"}
+          .timeline.violet
+            .timeline-content.d-flex.align-items-center
+              .user-image
+                = image_tag 'elisyam/avatar/avatar-06.jpg', class: 'rounded-circle'
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Beverly Oliver
+                  Send you a friend request
+                .time 4 min ago
+          .timeline.red
+            .timeline-content.d-flex.align-items-center
+              .timeline-icon
+                %i.la.la-spinner
+              .d-flex.flex-column.mr-auto
+                .title
+                  Server rebooted
+                .time 10 min ago
+          .timeline.violet
+            .timeline-content.d-flex.align-items-center
+              .user-image
+                = image_tag 'elisyam/avatar/avatar-05.jpg', class: 'rounded-circle'
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Megan Duncan
+                  Followed 4 people
+                  .users-like
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-01.jpg', class: 'img-fluid rounded-circle'
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'img-fluid rounded-circle'
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-07.jpg', class: 'img-fluid rounded-circle'
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-09.jpg', class: 'img-fluid rounded-circle'
+                .time 12 min ago
+          .timeline.blue
+            .timeline-content.d-flex.align-items-center
+              .timeline-icon
+                %i.la.la-heart-o
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Brandon Smith
+                  Liked
+                  %span.font-weight-bold
+                    %a{:href => "#"} Elisyam Admin Template
+                .time 30 min ago
+          .timeline.violet
+            .timeline-content.d-flex.align-items-center
+              .timeline-icon
+                %i.la.la-twitter
+              .d-flex.flex-column.mr-auto
+                .title
+                  + 3 new followers
+                  .users-like
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-09.jpg', class: 'img-fluid rounded-circle'
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-06.jpg', class: 'img-fluid rounded-circle'
+                    %a{:href => "profile.html"}
+                      = image_tag 'elisyam/avatar/avatar-03.jpg', class: 'img-fluid rounded-circle'
+                .time 34 min ago
+          .timeline.violet
+            .timeline-content.d-flex.align-items-center
+              .user-image
+                = image_tag 'elisyam/avatar/avatar-04.jpg', class: 'rounded-circle'
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Nathan Hunter
+                  Invited you in a group
+                .time 42 min ago
+          .timeline.violet
+            .timeline-content.d-flex.align-items-center
+              .user-image
+                = image_tag 'elisyam/avatar/avatar-03.jpg', class: 'rounded-circle'
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Louis Henry
+                  Is now following you
+                .time 50 min ago
+          .timeline.blue
+            .timeline-content.d-flex.align-items-center
+              .timeline-icon
+                %i.la.la-image
+              .d-flex.flex-column.mr-auto
+                .title
+                  %span.username Brandon Smith
+                  Uploaded
+                  %span.font-weight-bold
+                    %a{:href => "#"} 8 photos
+                .time 1 hour ago
+%footer.main-footer
+  .row
+    .col-xl-6.col-lg-6.col-md-6.col-sm-12.d-flex.align-items-center.justify-content-xl-start.justify-content-lg-start.justify-content-md-start.justify-content-center
+      %p.text-gradient-02 Design By Saerox
+    .col-xl-6.col-lg-6.col-md-6.col-sm-12.d-flex.align-items-center.justify-content-xl-end.justify-content-lg-end.justify-content-md-end.justify-content-center
+      %ul.nav
+        %li.nav-item
+          %a.nav-link{:href => "documentation.html"} Documentation
+        %li.nav-item
+          %a.nav-link{:href => "changelog.html"} Changelog
+%a.go-top{:href => "#"}
+  %i.la.la-arrow-up

@@ -1,0 +1,116 @@
+%header.header
+  %nav.navbar.fixed-top
+    / Begin Search Box
+    .search-box
+      %button.dismiss
+        %i.ion-close-round
+      %form#searchForm{:action => "javascript:;", :role => "search"}
+        %input.form-control{:placeholder => "Search something ...", :type => "search"}/
+    / End Search Box
+    / Begin Topbar
+    .navbar-holder.d-flex.align-items-center.align-middle.justify-content-between
+      / Begin Logo
+      .navbar-header
+        %a.navbar-brand{:href => "/"}
+          .brand-image.brand-big
+            = image_tag 'logo.png', class: 'logo-big', style: "width: 50px;"
+          .brand-image.brand-small
+            = image_tag 'logo.png', class: 'logo-small', style: "width: 50px;"
+        / Toggle Button
+        %a#toggle-btn.menu-btn.active{:href => "javascript:;"}
+          %span
+          %span
+          %span
+        / End Toggle
+      / End Logo
+      / Begin Navbar Menu
+      %ul.nav-menu.list-unstyled.d-flex.flex-md-row.align-items-md-center.pull-right
+        / Search
+        %li.nav-item.d-flex.align-items-center
+          %a#search{:href => "javascript:;"}
+            %i.la.la-search
+        / End Search
+        / Begin Notifications
+        %li.nav-item.dropdown
+          %a#notifications.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-target" => "javascript:;", "data-toggle" => "dropdown", :href => "javascript:;", :rel => "nofollow"}
+            %i.la.la-bell.animated.infinite.swing
+            %span.badge-pulse
+          %ul.dropdown-menu.notification{"aria-labelledby" => "notifications"}
+            %li
+              .notifications-header
+                .title Notifications (4)
+                .notifications-overlay
+                = image_tag 'elisyam/notifications/01.jpg', class: 'img-fluid'
+            %li
+              %a{:href => "javascript:;"}
+                .message-icon
+                  %i.la.la-user
+                .message-body
+                  .message-body-heading
+                    New user registered
+                  %span.date 2 hours ago
+            %li
+              %a{:href => "javascript:;"}
+                .message-icon
+                  %i.la.la-calendar-check-o
+                .message-body
+                  .message-body-heading
+                    New event added
+                  %span.date 7 hours ago
+            %li
+              %a{:href => "javascript:;"}
+                .message-icon
+                  %i.la.la-history
+                .message-body
+                  .message-body-heading
+                    Server rebooted
+                  %span.date 7 hours ago
+            %li
+              %a{:href => "javascript:;"}
+                .message-icon
+                  %i.la.la-twitter
+                .message-body
+                  .message-body-heading
+                    You have 3 new followers
+                  %span.date 10 hours ago
+            %li
+              %a.dropdown-item.all-notifications.text-center{:href => "javascript:;", :rel => "nofollow"} View All Notifications
+        / End Notifications
+        / User
+        %li.nav-item.dropdown
+          %a#user.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-target" => "#", "data-toggle" => "dropdown", :href => "#", :rel => "nofollow"}
+            = image_tag 'elisyam/avatar/avatar-01.jpg', class: 'avatar rounded-circle'
+          %ul.user-size.dropdown-menu{"aria-labelledby" => "user"}
+            - if current_user
+              %li.welcome
+                %a.edit-profil{:href => "#"}
+                  %i.la.la-gear
+                = image_tag 'elisyam/avatar/avatar-01.jpg', class: 'rounded-circle'
+              %li
+                %a.dropdown-item{:href => "/"}
+                  Profile
+              %li
+                %a.dropdown-item{:href => "/"}
+                  Messages
+              %li
+                %a.dropdown-item.no-padding-bottom{:href => "#"}
+                  Settings
+              %li.separator
+              %li
+                %a.dropdown-item.no-padding-top{:href => "/"}
+                  Faq
+              %li
+                = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item logout text-center' do
+                  %i.ti-power-off
+            - else
+              %li
+                = link_to new_user_session_path, class: 'dropdown-item' do
+                  Login
+              %li
+                = link_to new_user_registration_path, class: 'dropdown-item' do
+                  Register
+        / End User
+        / Begin Quick Actions
+        %li.nav-item
+          %a.open-sidebar{:href => "#off-canvas"}
+            %i.la.la-ellipsis-h

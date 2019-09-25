@@ -1,4 +1,6 @@
 class Record < ApplicationRecord
+  belongs_to :user
+
   validates :name, presence: true
   validates :imm_type, presence: true
   validates :priority_date, presence: true
