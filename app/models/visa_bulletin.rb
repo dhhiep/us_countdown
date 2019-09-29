@@ -28,14 +28,17 @@ class VisaBulletin < ApplicationRecord
       )
     end
 
-    def distance_friendly(imm_type, previous: {}, current: {})
-      imm_type = imm_type.to_sym
+    def distance_friendly(imm_type, previous: {}, current: {}, include_week: true)
+      imm_type = imm_type.downcase.to_sym
       date_range_valid?(imm_type, previous: previous, current: previous)
 
       previous_month = previous[imm_type]
       current_month = current[imm_type]
 
-      previous_month == current_month ? 'No Increase!!!' : previous_month.to(current_month)
+      options = {}
+      options[:include_week] = include_week
+
+      previous_month == current_month ? 'No Increase!!!' : previous_month.to(current_month, options: options)
     rescue StandardError
       # TODO:Handle error
     end

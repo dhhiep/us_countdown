@@ -1,10 +1,5 @@
 %header.header
   %nav.navbar.fixed-top
-    .search-box
-      %button.dismiss
-        %i.ion-close-round
-      %form#searchForm{:action => "javascript:;", :role => "search"}
-        %input.form-control{:placeholder => "Search something ...", :type => "search"}/
     .navbar-holder.d-flex.align-items-center.align-middle.justify-content-between
       .navbar-header
         %a.navbar-brand{:href => "/"}
@@ -18,9 +13,6 @@
           %span
       %ul.nav-menu.list-unstyled.d-flex.flex-md-row.align-items-md-center.pull-right
         - if current_user
-          %li.nav-item.d-flex.align-items-center
-            %a#search{:href => "javascript:;"}
-              %i.la.la-search
           %li.nav-item.dropdown
             %a#notifications.nav-link{"aria-expanded" => "false", "aria-haspopup" => "true", "data-target" => "javascript:;", "data-toggle" => "dropdown", :href => "javascript:;", :rel => "nofollow"}
               %i.la.la-bell.animated.infinite.swing
@@ -89,7 +81,7 @@
               %li
                 = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item logout text-center' do
                   %i.ti-power-off
-          %li.nav-item
+          %li.nav-item.hide
             %a.open-sidebar{:href => "#off-canvas"}
               %i.la.la-ellipsis-h
         - else

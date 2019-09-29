@@ -1,0 +1,16 @@
+- current_dates = current.dates_by_type(data_type)
+- previous_dates = previous.dates_by_type(data_type) if previous.present?
+- colors = %w(red violet blue) * 2
+
+- VisaBulletin::TYPES.each do |key, _value|
+  %li{ class: "task-color task-#{colors.shift}"}
+    %label.text-primary{:for => "check-1"}
+      %b= "#{key.upcase}:"
+      - date = current_dates[key]
+      - if date.is_a?(Time)
+        = date.s_display
+        = "(#{VisaBulletin.distance_friendly(key, previous: current_dates, current: current.sample_by_time_id)})"
+        - if previous_dates
+          %b= "(#{VisaBulletin.distance_friendly(key, previous: previous_dates, current: current_dates)})"
+      - else
+        = date

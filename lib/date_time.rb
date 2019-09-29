@@ -7,7 +7,7 @@ Time.class_eval do
     strftime('%d/%m/%Y %H:%M:%S')
   end
 
-  def to(end_date, humanize_display: true)
+  def to(end_date, humanize_display: true, options: {})
     diff_time = end_date - self
     dst_years = (diff_time / 1.year).floor
     dst_months = (diff_time / 1.month).floor - dst_years * 12
@@ -19,7 +19,7 @@ Time.class_eval do
       str << "#{dst_years} years" if dst_years.positive?
       str << "#{dst_months} months" if dst_months.positive?
       str << "#{diff_days.floor} days" if diff_days.floor.positive?
-      str << "(or #{dst_weeks} weeks)" if dst_weeks.positive?
+      str << "(or #{dst_weeks} weeks)" if options[:include_week] && dst_weeks.positive?
       str.join(' ')
     else
       [dst_years, dst_months, dst_weeks, diff_days.floor]

@@ -1,10 +1,11 @@
 class RecordsController < ApplicationController
-  before_action :set_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_record, only: %i[show edit update destroy]
 
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    @records = object
   end
 
   # GET /records/1
@@ -14,7 +15,7 @@ class RecordsController < ApplicationController
 
   # GET /records/new
   def new
-    @record = Record.new
+    @record = object.new
   end
 
   # GET /records/1/edit
@@ -24,7 +25,10 @@ class RecordsController < ApplicationController
   # POST /records
   # POST /records.json
   def create
-    @record = Record.new(record_params)
+    @record = object.new(record_params)
+
+    # set default user
+    @record.user ||= current_user
 
     respond_to do |format|
       if @record.save
@@ -62,13 +66,22 @@ class RecordsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_record
-      @record = Record.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def record_params
-      params.require(:record).permit(:name, :imm_type, :priority_date, :approval_date)
-    end
+  def content_layout
+    layout_path(:dashboard)
+  end
+
+  def object
+    policy_scope(Record)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_record
+    @record = object.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def record_params
+    params.require(:record).permit(:name, :imm_type, :priority_date, :approval_date, :user)
+  end
 end

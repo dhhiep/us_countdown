@@ -3,7 +3,11 @@
     %nav.side-navbar.box-scroll.sidebar-scroll
       %ul.list-unstyled
         %li
-          %a{:href => "/ui"}
+          = link_to root_path do
+            %i.ti.ti-dashboard
+            %span Overview
+        %li
+          = link_to records_path do
             %i.ti.ti-receipt
             %span Records
         %li

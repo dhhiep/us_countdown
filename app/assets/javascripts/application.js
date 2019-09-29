@@ -18,6 +18,7 @@
 //= require nicescroll/nicescroll.min
 //= require chart/chart.min
 //= require progress/circle-progress.min
+//= require nicescroll/nicescroll.min
 //= require app/app.min
 //= require elisyam/dashboard/db-compact
 // require_tree .

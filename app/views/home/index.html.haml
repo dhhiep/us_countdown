@@ -1,0 +1,30 @@
+- if @records.present?
+  .row.flex-row
+    - @records.each do |record|
+      = render 'record', record: record
+  %br/
+  %hr/
+  %br/
+  %br/
+  %br/
+
+.row.justify-content-center
+  .col-xl-10.col-12
+    .timeline.timeline-line-solid
+      - colors = %w(info primary success warning grey) * 10
+      - visa_bulletin_loop do |current, previous|
+        %span.timeline-label
+          %span{class: "label bg-#{colors.shift}"}
+            = "#{current.uuid[4..-1]}/#{current.uuid[0..3]}"
+        - %i(cut_off_dates openning_dates).each do |data_type|
+          .timeline-item
+            .timeline-point.timeline-point
+            .timeline-event
+              .widget.widget-08.has-shadow
+                .widget-body
+                  .today
+                    .title= data_type.to_s.gsub('_dates', '').split('_').join(' ').titleize
+                  .todo-list
+                    %ul#sortable.list
+                      = render 'visa_bulletin', current: current, previous: previous, data_type: data_type
+              .time-right= current.created_at.l_display

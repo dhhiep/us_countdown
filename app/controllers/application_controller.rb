@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit
+
   helper_method :content_layout
 
   private

@@ -1,0 +1,44 @@
+.row.flex-row
+  .col-xl-12
+    .widget.widget-07.has-shadow
+      .widget-header.bordered.d-flex.align-items-center
+        %h2 Records
+        .widget-options
+          .btn-group{:role => "group"}
+            = link_to 'New Record', new_record_path, class: 'btn btn-success ripple'
+      .widget-body
+        .table-responsive.table-scroll.padding-right-10{:style => "max-height:520px;"}
+          %table.table.table-hover.mb-0
+            %thead
+              %tr
+                - if current_user.admin?
+                  %th Owner
+                %th Name
+                %th Imm type
+                %th Priority date
+                %th Approval date
+                %th Openning Date Estimation
+                %th Cut-Off Date Estimation
+                %th Actions
+            %tbody
+              - @records.each do |record|
+                %tr
+                  - if current_user.admin?
+                    %td= record.user.email
+                  %td
+                    %span.text-primary
+                      = record.name
+                  %td
+                    %span.badge-text.badge-text-small.info
+                      = record.imm_type.to_s.upcase
+                  %td= record.priority_date&.s_display
+                  %td= record.approval_date&.s_display
+                  %td= record.openning_date_estimation
+                  %td= record.cutoff_date_estimation
+                  %td.td-actions
+                    = link_to record do
+                      %i.la.la-arrows.edit
+                    = link_to edit_record_path(record) do
+                      %i.la.la-edit.edit
+                    = link_to record, method: :delete, data: { confirm: 'Are you sure?' } do
+                      %i.la.la-close.delete

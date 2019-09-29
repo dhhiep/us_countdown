@@ -1,0 +1,46 @@
+.col-xl-4.col-lg-6.col-md-6.col-sm-12
+  .widget.widget-13.has-shadow
+    .widget-body.p-0
+      .author-avatar
+        = image_tag 'elisyam/avatar/avatar-04.jpg', class: 'img-fluid rounded-circle'
+      .author-name
+        %div= record.name
+        %br/
+        %span= "#{record.cutoff_date_estimation} to Cut-Off date"
+        %span= "#{record.openning_date_estimation} to Open date"
+      .social-stats.mt-5
+        .row.d-flex.justify-content-between
+          .col-4.text-center
+            %i.la.la-lightbulb-o
+            .counter= record.priority_date.s_display
+            .heading Priority Date
+          .col-4.text-center
+            %i.la.la-dribbble.dribbble
+            .counter= record.approval_date&.s_display || 'N/A'
+            .heading Approval Date
+          .col-4.text-center
+            %i.la.la-info
+            .counter Type
+            .heading=record.imm_type.upcase
+        %br/
+        .row.d-flex.justify-content-between
+          .col-4.text-center
+            %i.la.la-hourglass-2
+            .counter
+              = VisaBulletin.distance_friendly(record.imm_type, previous: VisaBulletin.current_openning_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
+            .heading Current Openning
+          .col-4.text-center
+            %i.la.la-hourglass-3
+            .counter
+              = VisaBulletin.distance_friendly(record.imm_type, previous: VisaBulletin.current_cut_off_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
+            .heading Current Cut-Off
+          .col-4.text-center
+            %i.la.la-line-chart
+            .counter= VisaBulletin.improvement_speed(record.imm_type)
+            .heading Improvement
+      .shape-container
+        %svg.wavy{:viewbox => "00 0 85 25"}
+          %path{:d => "M0 30 V15 Q30 3 60 15 V30z", :fill => "#e4e8f0"}
+          %path{:d => "M0 30 V5 Q30 20 55 12 T100 11 V30z", :fill => "#5d5386"}
+
+
