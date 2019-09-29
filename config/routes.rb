@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     confirmation: 'verification',
     unlock: 'unblock',
     registration: 'register',
-    sign_up: 'cmon_let_me_in',
+    sign_up: 'sign-up',
   }
 
   resources :records
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :home, path: '' do
     collection do
       get :ui
+      get :ui2
       get :refresh
     end
   end

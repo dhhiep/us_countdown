@@ -1,0 +1,7 @@
+.page
+  = render 'layouts/partials/header'
+  .page-content.d-flex.align-items-stretch
+    = render 'layouts/partials/offcanvas_sidebar'
+    = render 'layouts/partials/left_sidebar'
+    .content-inner.compact
+      = yield

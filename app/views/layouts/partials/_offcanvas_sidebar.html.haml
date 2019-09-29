@@ -1,4 +1,3 @@
-/ Offcanvas Sidebar
 .off-sidebar.from-right
   .off-sidebar-container
     %header.off-sidebar-header
@@ -10,9 +9,7 @@
       %a.off-sidebar-close{:href => "#off-canvas"}
     .off-sidebar-content.offcanvas-scroll.auto-scroll
       .tab-content
-        / Begin Messenger
         #messenger.tab-pane.show.active.fade{"aria-labelledby" => "messenger-tab", :role => "tabpanel"}
-          / Begin Chat Message
           %span.date Today
           .messenger-message.messenger-message-sender
             = image_tag 'elisyam/avatar/avatar-02.jpg', class: 'messenger-image messenger-image-default'
@@ -73,19 +70,13 @@
                   Great!
                 %p
                   See you later!
-          / End Chat Message
-          / Begin Message Form
           .enter-message
             .enter-message-form
               %input{:placeholder => "Enter your message...", :type => "text"}/
             .enter-message-button
               %a.send{:href => "#"}
                 %i.ion-paper-airplane
-          / End Message Form
-        / End Messenger
-        / Begin Today
         #today.tab-pane.fade{"aria-labelledby" => "today-tab", :role => "tabpanel"}
-          / Begin Today Stats
           .sidebar-heading.pt-0 Today
           .today-stats.mt-3.mb-3
             .row
@@ -101,8 +92,6 @@
                 %i.la.la-money
                 .counter $ 4,565
                 .heading Earnings
-          / End Today Stats
-          / Begin Friends
           .sidebar-heading Friends
           .quick-friends.mt-3.mb-3
             %ul.list-group.w-100
@@ -136,8 +125,6 @@
                     = image_tag 'elisyam/avatar/avatar-06.jpg', class: 'img-fluid rounded-circle', style: 'width: 35px;'
                   .media-body.align-self-center
                     %a{:href => "javascript:void(0);"} Beverly Oliver
-          / End Friends
-          / Begin Settings
           .sidebar-heading Settings
           .quick-settings.mt-3.mb-3
             %ul.list-group.w-100

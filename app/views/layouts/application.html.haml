@@ -23,11 +23,6 @@
       .canvas
         = image_tag 'logo.png', class: 'loader-logo'
         .spinner
-    .page
-      = render 'layouts/partials/header'
-      .page-content.d-flex.align-items-stretch
-        = render 'layouts/partials/offcanvas_sidebar'
-        = render 'layouts/partials/left_sidebar'
-        .content-inner.compact
-          = yield
+    = render layout: content_layout do
+      = yield
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

@@ -1,0 +1,42 @@
+.container-fluid.no-padding.h-100
+  .row.flex-row.h-100.bg-white
+    .col-xl-3.col-lg-5.col-md-5.col-sm-12.col-12.no-padding
+      .elisyam-bg.background-03
+        .elisyam-overlay.overlay-08
+        .authentication-col-content-2.mx-auto.text-center
+          .logo-centered
+            %a{:href => '/'}
+              = image_tag 'logo.png'
+          %span.description
+          %ul#animate-tab.login-nav.nav.nav-tabs.mt-5.justify-content-center{:role => "tablist"}
+            %li
+              %a#singin-tab.active{"data-easein" => "zoomInUp", :href => new_user_session_path, :role => "tab"} Sign In
+            %li
+              %a#signup-tab{"data-easein" => "zoomInRight", :href => new_user_registration_path, :role => "tab"} Sign Up
+    .col-xl-9.col-lg-7.col-md-7.col-sm-12.col-12.my-auto.no-padding
+      .authentication-form-2.mx-auto
+        #animate-tab-content.tab-content
+          #singin.tab-pane.show.active{"aria-labelledby" => "singin-tab", :role => "tabpanel"}
+            %h3 Sign In
+            %br/
+            = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+              .group.material-input
+                = f.text_field :email, required: true, autofocus: false, autocomplete: "email"
+                %span.highlight
+                %span.bar
+                %label Email
+              .group.material-input
+                = f.password_field :password, required: true, autocomplete: "current-password"
+                %span.highlight
+                %span.bar
+                %label Password
+              .row
+                .col.text-left
+                  .styled-checkbox
+                    - if devise_mapping.rememberable?
+                      = f.check_box :remember_me
+                      = f.label :remember_me
+                .col.text-right
+                  = link_to 'Forgot Password ?', new_user_registration_path
+              .sign-btn.text-center
+                = f.submit "Sign In", class: 'btn btn-lg btn-gradient-01'
