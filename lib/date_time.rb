@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 Time.class_eval do
   def s_display
     strftime('%d/%m/%Y')
   end
+
+  alias_method :date_picker_diplay, :s_display
 
   def l_display
     strftime('%d/%m/%Y %H:%M:%S')

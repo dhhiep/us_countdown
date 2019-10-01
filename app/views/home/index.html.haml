@@ -1,13 +1,30 @@
 - if @records.present?
-  .row.flex-row
+  .row.flex-row.justify-content-center
     - @records.each do |record|
-      = render 'record', record: record
-  %br/
-  %hr/
-  %br/
+      = render 'records/record', record: record
+- else
   %br/
   %br/
-
+  .row.justify-content-center
+    .col-xl-10.col-12
+      .alert.alert-outline-primary{:role => "alert"}
+        - if current_user
+          - if @records.blank?
+            Please
+            %strong= link_to 'Add a New Record', records_path
+            to tracking your record is
+            %strong= link_to 'openning', records_path
+            or
+            %strong= link_to 'cutting-off', records_path
+        - else
+          Please
+          %strong= link_to 'Login', new_user_session_path
+          to manage your records.
+%hr/
+%br/
+%br/
+%br/
+%div
 .row.justify-content-center
   .col-xl-10.col-12
     .timeline.timeline-line-solid

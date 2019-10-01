@@ -15,10 +15,13 @@
 // require turbolinks
 //= require base/jquery.min
 //= require base/core.min
-//= require nicescroll/nicescroll.min
 //= require chart/chart.min
 //= require progress/circle-progress.min
 //= require nicescroll/nicescroll.min
+//= require datepicker/moment.min
+//= require datepicker/daterangepicker
 //= require app/app.min
 //= require elisyam/dashboard/db-compact
+//= require elisyam/components/datepicker/datepicker
+//= require elisyam/components/validation/validation.min
 // require_tree .

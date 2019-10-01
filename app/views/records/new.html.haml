@@ -1,0 +1,12 @@
+.row.flex-row
+  .col-12
+    .widget.has-shadow
+      .widget-header.bordered.no-actions.d-flex.align-items-center
+        %h4
+          = link_to records_path do
+            %i.ti.ti-angle-left
+          &nbsp;
+        New Record
+      .widget-body
+        = render 'form', record: @record
+

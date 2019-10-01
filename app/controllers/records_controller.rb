@@ -8,18 +8,9 @@ class RecordsController < ApplicationController
     @records = object
   end
 
-  # GET /records/1
-  # GET /records/1.json
-  def show
-  end
-
   # GET /records/new
   def new
     @record = object.new
-  end
-
-  # GET /records/1/edit
-  def edit
   end
 
   # POST /records
@@ -82,6 +73,6 @@ class RecordsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def record_params
-    params.require(:record).permit(:name, :imm_type, :priority_date, :approval_date, :user)
+    params.require(:record).permit(:name, :imm_type, :priority_date_field, :approval_date_field, :user)
   end
 end

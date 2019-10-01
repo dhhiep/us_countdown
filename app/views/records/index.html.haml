@@ -21,24 +21,29 @@
                 %th Cut-Off Date Estimation
                 %th Actions
             %tbody
-              - @records.each do |record|
+              - if @records.any?
+                - @records.each do |record|
+                  %tr
+                    - if current_user.admin?
+                      %td= record.user.email
+                    %td
+                      %span.text-primary
+                        = record.name
+                    %td
+                      %span.badge-text.badge-text-small.info
+                        = record.imm_type.to_s.upcase
+                    %td= record.priority_date&.s_display
+                    %td= record.approval_date&.s_display
+                    %td= record.openning_date_estimation
+                    %td= record.cutoff_date_estimation
+                    %td.td-actions
+                      = link_to record do
+                        %i.la.la-arrows.edit
+                      = link_to edit_record_path(record) do
+                        %i.la.la-edit.edit
+                      = link_to record, method: :delete, data: { confirm: 'Are you sure?' } do
+                        %i.la.la-close.delete
+              - else
                 %tr
-                  - if current_user.admin?
-                    %td= record.user.email
-                  %td
-                    %span.text-primary
-                      = record.name
-                  %td
-                    %span.badge-text.badge-text-small.info
-                      = record.imm_type.to_s.upcase
-                  %td= record.priority_date&.s_display
-                  %td= record.approval_date&.s_display
-                  %td= record.openning_date_estimation
-                  %td= record.cutoff_date_estimation
-                  %td.td-actions
-                    = link_to record do
-                      %i.la.la-arrows.edit
-                    = link_to edit_record_path(record) do
-                      %i.la.la-edit.edit
-                    = link_to record, method: :delete, data: { confirm: 'Are you sure?' } do
-                      %i.la.la-close.delete
+                  %td.text-center{colspan: 7}
+                    No record found

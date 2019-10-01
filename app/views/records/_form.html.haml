@@ -1,0 +1,38 @@
+= form_with(model: record, local: true, class: 'needs-validation', novalidate: '') do |form|
+  - if record.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(record.errors.count, "error")
+        prohibited this record from being saved:
+      %ul
+        - record.errors.full_messages.each do |message|
+          %li= message
+    %br/
+  .form-group.row.d-flex.align-items-center.mb-5
+    %label.col-lg-4.form-control-label.d-flex.justify-content-lg-end Name *
+    .col-lg-5
+      = form.text_field :name, class: 'form-control', placeholder: 'Enter your name', required: true
+  .form-group.row.d-flex.align-items-center.mb-5
+    %label.col-lg-4.form-control-label.d-flex.justify-content-lg-end Immigration Type *
+    .col-lg-5
+      .select
+        = select(:record, :imm_type, VisaBulletin::TYPES.keys.map(&:upcase), { selected: form.object.imm_type&.upcase, include_blank: 'Please select a Immigration Type' }, { class: 'custom-select form-control', required: true})
+        .invalid-feedback
+          Please select an option
+  .form-group.row.d-flex.align-items-center.mb-5
+    %label.col-lg-4.form-control-label.d-flex.justify-content-lg-end Priority Date *
+    .col-lg-5
+      .input-group
+        %span.input-group-addon.addon-secondary
+          %i.la.la-calendar
+        = form.text_field :priority_date_field, class: 'date-pikcer form-control', :placeholder => "Select a Date", required: true, autocomplete: 'off'
+  .form-group.row.d-flex.align-items-center.mb-5
+    %label.col-lg-4.form-control-label.d-flex.justify-content-lg-end Approval Date
+    .col-lg-5
+      .input-group
+        %span.input-group-addon.addon-secondary
+          %i.la.la-calendar
+        = form.text_field :approval_date_field, class: 'date-pikcer form-control', :placeholder => "Select a Date", autocomplete: 'off'
+  .text-right
+    %button.btn.btn-gradient-01{:type => "submit"} Submit Form
+    %button.btn.btn-shadow{:type => "reset"} Reset

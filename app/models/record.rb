@@ -21,6 +21,17 @@ class Record < ApplicationRecord
     esimtate_date(VisaBulletin.current_cut_off_dates)
   end
 
+  # Dynamic define method to UI handle date picker
+  %i[priority_date approval_date].each do |field_name|
+    define_method("#{field_name}_field") do
+      send(field_name)&.date_picker_diplay || ''
+    end
+
+    define_method("#{field_name}_field=") do |string|
+      eval("self.#{field_name} = string.to_date_picker") if string.present?
+    end
+  end
+
   private
 
   def before_save
