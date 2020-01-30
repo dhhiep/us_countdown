@@ -20,6 +20,7 @@ Time.class_eval do
 
     if humanize_display
       str = []
+      str << '-' if diff_time.negative?
       str << "#{dst_years} years" if dst_years.positive?
       str << "#{dst_months} months" if dst_months.positive?
       str << "#{diff_days.floor} days" if diff_days.floor.positive?
