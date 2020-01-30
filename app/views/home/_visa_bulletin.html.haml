@@ -9,8 +9,8 @@
       - date = current_dates[key]
       - if date.is_a?(Time)
         = date.s_display
-        = "(#{VisaBulletin.distance_friendly(key, previous: current_dates, current: current.sample_by_time_id)})"
+        = "(#{VisaBulletins::Calculator.distance_friendly(key, previous: current_dates, current: current.sample_by_time_id)})"
         - if previous_dates
-          %b= "(#{VisaBulletin.distance_friendly(key, previous: previous_dates, current: current_dates)})"
+          %b= "(#{VisaBulletins::Calculator.distance_friendly(key, previous: previous_dates, current: current_dates)})"
       - else
         = date

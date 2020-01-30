@@ -27,16 +27,16 @@
           .col-4.text-center
             %i.la.la-hourglass-2
             .counter
-              = VisaBulletin.distance_friendly(record.imm_type, previous: VisaBulletin.current_openning_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
+              = VisaBulletins::Calculator.distance_friendly(record.imm_type, previous: VisaBulletin.current_openning_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
             .heading Current Openning
           .col-4.text-center
             %i.la.la-hourglass-3
             .counter
-              = VisaBulletin.distance_friendly(record.imm_type, previous: VisaBulletin.current_cut_off_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
+              = VisaBulletins::Calculator.distance_friendly(record.imm_type, previous: VisaBulletin.current_cut_off_dates, current: VisaBulletin.first.sample_by_time_id, include_week: false)
             .heading Current Cut-Off
           .col-4.text-center
             %i.la.la-line-chart
-            .counter= VisaBulletin.improvement_speed(record.imm_type)
+            .counter= VisaBulletins::Calculator.improvement_speed(record.imm_type)
             .heading Improvement
       .shape-container
         %svg.wavy{:viewbox => "00 0 85 25"}

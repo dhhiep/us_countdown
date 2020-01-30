@@ -10,7 +10,7 @@ class Record < ApplicationRecord
   before_save :before_save
 
   def esimtate_date(time)
-    VisaBulletin.distance_friendly(imm_type.to_sym, previous: time, current: VisaBulletin.sample(priority_date))
+    VisaBulletins::Calculator.distance_friendly(imm_type.to_sym, previous: time, current: VisaBulletin.sample(priority_date))
   end
 
   def openning_date_estimation

@@ -7,10 +7,11 @@
             = image_tag 'logo.png', class: 'logo-big', style: "width: 65px;"
           .brand-image.brand-small
             = image_tag 'logo.png', class: 'logo-small', style: "width: 65px;"
-        %a#toggle-btn.menu-btn.active{:href => "javascript:;"}
-          %span
-          %span
-          %span
+        - if current_user
+          %a#toggle-btn.menu-btn.active{:href => "javascript:;"}
+            %span
+            %span
+            %span
       %ul.nav-menu.list-unstyled.d-flex.flex-md-row.align-items-md-center.pull-right
         - if current_user
           %li.nav-item.dropdown
