@@ -1,0 +1,35 @@
+---
+# Usage:
+# docker-compose build
+# docker-compose down; docker-compose up --build --detach
+# docker-compose down; docker rmi -f hoanghiepitvnn/us_countdown; docker rmi $(docker images --filter "dangling=true" -q --no-trunc) -f; docker-compose up --build --detach
+
+version: '3.8'
+
+services:
+  app:
+    image: 'hoanghiepitvnn/us_countdown'
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+      args:
+        BUNDLER_VERSION: $BUNDLER_VERSION
+        WORKSPACE: $WORKSPACE
+        RAILS_PORT: $RAILS_PORT
+    ports:
+      - 5555:$RAILS_PORT
+    environment:
+      RAILS_MAX_THREADS: $RAILS_MAX_THREADS
+      POSTGRESQL_PRODUCTION: $POSTGRESQL_PRODUCTION
+      POSTGRESQL_USERNAME: $POSTGRESQL_USERNAME
+      POSTGRESQL_PASSWORD: $POSTGRESQL_PASSWORD
+      POSTGRESQL_HOST: $POSTGRESQL_HOST
+      POSTGRESQL_PORT: $POSTGRESQL_PORT
+      DOMAIN: $DOMAIN
+      EMAIL_ADDRESS: $EMAIL_ADDRESS
+      EMAIL_PORT: $EMAIL_PORT
+      EMAIL_USER_NAME: $EMAIL_USER_NAME
+      EMAIL_PASSWORD: $EMAIL_PASSWORD
+    volumes:
+      - ~/docker/us_countdown/log:/var/workspace/log
